@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: QGenda REST Company Notification List API
+  version: '2'
+  description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
+  contact:
+    name: QGenda Support
+    url: https://www.qgenda.com/
+  x-apisjson-derived-from: postman/qgenda-collection.json
+servers:
+- url: https://api.qgenda.com/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Notification List
+paths:
+  /v2/notificationlist:
+    post:
+      operationId: postNotificationlist
+      summary: NotificationList
+      tags:
+      - Notification List
+      description: 'Creates a New Notification List
+
+        Response Object: Notification List'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/notificationlist/{notificationListId}/contact:
+    post:
+      operationId: postNotificationlistNotificationListIdContact
+      summary: NotificationList/Contact
+      tags:
+      - Notification List
+      description: 'Adds a new Contact to an existing Notification List
+
+        Response Object: Notification List'
+      parameters:
+      - name: notificationListId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/notificationlist/{notificationListId}:
+    delete:
+      operationId: deleteNotificationlistNotificationListId
+      summary: NotificationList
+      tags:
+      - Notification List
+      description: Deletes a Notification List
+      parameters:
+      - name: notificationListId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/notificationlist/{notificationListId}/contact/:
+    delete:
+      operationId: deleteNotificationlistNotificationListIdContact
+      summary: NotificationList/Contact
+      tags:
+      - Notification List
+      description: Removes a single tag or contact from an existing Notification List
+      parameters:
+      - name: notificationListId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'

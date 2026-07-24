@@ -1,0 +1,1076 @@
+openapi: 3.1.0
+info:
+  title: QGenda REST Company Staff Member API
+  version: '2'
+  description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
+  contact:
+    name: QGenda Support
+    url: https://www.qgenda.com/
+  x-apisjson-derived-from: postman/qgenda-collection.json
+servers:
+- url: https://api.qgenda.com/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Staff Member
+paths:
+  /v2/staffmember:
+    get:
+      operationId: getStaffmember
+      summary: StaffMember
+      tags:
+      - Staff Member
+      description: 'Returns all staff members that are viewable by the user.
+
+        If Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.
+
+        Response Object: Array of StaffMemberDetail'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postStaffmember
+      summary: StaffMember
+      tags:
+      - Staff Member
+      description: 'Adds a staff member.
+
+        If Workforce Credentialing Connection is enabled, the Staff member is added in both Workforce and Credentialing.
+
+        Response Object: StaffMemberDetail'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    put:
+      operationId: putStaffmember
+      summary: StaffMember
+      tags:
+      - Staff Member
+      description: 'Updates a staff member. Any fields not included will not be changed. Any fields included will be changed.Can use NPI, StaffId, BillSysId, and/or Email to match to a staff member. That order respectively will be used for preference when multiple of those properties are provided.
+
+        If Workforce Credentialing Connection is enabled, the Staff member is updated in both Workforce and Credentialing.
+
+        Response Object: StaffMemberDetail'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}:
+    get:
+      operationId: getStaffmemberStaffId
+      summary: StaffMember/StaffId
+      tags:
+      - Staff Member
+      description: 'Returns a single staff member by ID.
+
+        If Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    put:
+      operationId: putStaffmemberStaffId
+      summary: StaffMember/StaffId
+      tags:
+      - Staff Member
+      description: 'Updates a staff member. Any fields not included will not be changed. Any fields included will be changed.
+
+        If Workforce Credentialing Connection is enabled, the Staff member is updated in both Workforce and Credentialing.
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffId
+      summary: StaffMember
+      tags:
+      - Staff Member
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/badgeId:
+    post:
+      operationId: postStaffmemberStaffIdBadgeId
+      summary: StaffMember/BadgeId
+      tags:
+      - Staff Member
+      description: 'Updates a staff member''s Badge ID.
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffIdBadgeId
+      summary: StaffMember/BadgeId
+      tags:
+      - Staff Member
+      description: 'Deletes a Badge ID from a staff member.
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/location:
+    get:
+      operationId: getStaffmemberStaffIdLocation
+      summary: StaffMember/Location
+      tags:
+      - Staff Member
+      description: 'Returns all locations the staff member belongs to.
+
+        If Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.
+
+        Response Object: Array of StaffLocation'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/location/{locationId}/tag:
+    post:
+      operationId: postStaffmemberStaffIdLocationLocationIdTag
+      summary: StaffMember/Location/Tag
+      tags:
+      - Staff Member
+      description: 'Assign a staff-location tag to a staff member at a location
+
+        Response Object: StaffLocation'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffIdLocationLocationIdTag
+      summary: StaffMember/Location/Tag
+      tags:
+      - Staff Member
+      description: 'Delete a staff-location tag from a staff member at a location
+
+        Returns:A message indicating the amount of tag associations removed from the specified staff at the specified location'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/tag:
+    post:
+      operationId: postStaffmemberStaffIdTag
+      summary: StaffMember/Tag
+      tags:
+      - Staff Member
+      description: 'Assign a staff tag to a staff member
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffIdTag
+      summary: StaffMember/Tag
+      tags:
+      - Staff Member
+      description: 'Delete a staff tag from a staff member
+
+        Returns:A message indicating the amount of tag associations removed from the specified staff'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/skillset:
+    post:
+      operationId: postStaffmemberStaffIdSkillset
+      summary: StaffMember/SkillSet
+      tags:
+      - Staff Member
+      description: 'Gives a staff the ability to work a task
+
+        Response Object: SkillSet'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/skillset/{taskId}:
+    put:
+      operationId: putStaffmemberStaffIdSkillsetTaskId
+      summary: StaffMember/SkillSet
+      tags:
+      - Staff Member
+      description: 'Updates a staff''s ability to work a task
+
+        Response Object: SkillSet'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffIdSkillsetTaskId
+      summary: StaffMember/Skillset
+      tags:
+      - Staff Member
+      description: Deletes an existing skillset for a staff member for a task
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/profile:
+    post:
+      operationId: postStaffmemberStaffIdProfile
+      summary: StaffMember/Profile
+      tags:
+      - Staff Member
+      description: 'Sets the permissions of a user profile for a staff member
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/profile/{profileKey}:
+    put:
+      operationId: putStaffmemberStaffIdProfileProfileKey
+      summary: StaffMember/Profile
+      tags:
+      - Staff Member
+      description: 'Updates the permissions of a user profile for a staff member
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: profileKey
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/payModifier:
+    get:
+      operationId: getStaffmemberStaffIdPayModifier
+      summary: StaffMember/PayModifier
+      tags:
+      - Staff Member
+      description: 'Returns all Pay Modifiers for the staff member.
+
+        Response Object: Array of StaffPayModifier'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postStaffmemberStaffIdPayModifier
+      summary: StaffMember/PayModifier
+      tags:
+      - Staff Member
+      description: 'Creates Pay Modifiers for the staff member.
+
+        Response Object: Array of StaffPayModifier'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/payModifier/{payModifierKey}:
+    put:
+      operationId: putStaffmemberStaffIdPayModifierPayModifierKey
+      summary: StaffMember/PayModifier
+      tags:
+      - Staff Member
+      description: 'Updates all Pay Modifiers for the staff member.
+
+        Response Object: Array of StaffPayModifier'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: payModifierKey
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteStaffmemberStaffIdPayModifierPayModifierKey
+      summary: StaffMember/PayModifier
+      tags:
+      - Staff Member
+      description: 'Deletes all Pay Modifiers for the staff member.
+
+        Response Object: Array of StaffPayModifier'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: payModifierKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{staffId}/requestlimit:
+    get:
+      operationId: getStaffmemberStaffIdRequestlimit
+      summary: StaffMember/RequestLimit
+      tags:
+      - Staff Member
+      description: 'Returns all Request Limits the staff member belongs to.
+
+        Response Object: Array of RequestLimit'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/staffmember/{Id}/manager/:
+    put:
+      operationId: putStaffmemberIdManager
+      summary: StaffMember/Manager
+      tags:
+      - Staff Member
+      description: 'Updates a staff''s Manager
+
+        Response Object: StaffMemberDetail'
+      parameters:
+      - name: Id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/records:
+    get:
+      operationId: getCredentialingStaffStaffIdRecords
+      summary: Credentialing/Staff/Records
+      tags:
+      - Staff Member
+      description: 'Returns Credentialing Records for a specific Staff Member
+
+        Response Object: StaffRecords'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/appointments:
+    get:
+      operationId: getCredentialingStaffStaffIdAppointments
+      summary: Credentialing/Staff/Appointments
+      tags:
+      - Staff Member
+      description: 'Returns Credentialing Location Appointment Information for a specific Staff Member
+
+        Response Object: StaffAppointments'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/addresses:
+    get:
+      operationId: getCredentialingStaffStaffIdAddresses
+      summary: Credentialing/Staff/Addresses
+      tags:
+      - Staff Member
+      description: 'Returns Address information for Providers in Credentialing
+
+        Response Object: StaffAddresses'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/files:
+    get:
+      operationId: getCredentialingStaffStaffIdFiles
+      summary: Credentialing/Staff/Files
+      tags:
+      - Staff Member
+      description: 'Returns data on files associated with Providers in Credentialing.
+
+        Response Object: StaffFiles'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/file:
+    get:
+      operationId: getCredentialingStaffStaffIdFile
+      summary: Credentialing/Staff/File
+      tags:
+      - Staff Member
+      description: 'Returns a specific file associated with a Provider in Credentialing.
+
+        If successful, response will return a 200 along with the appropriate file (image, PDF, csv file, etc) based on provided File Key.'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffKey}/records/{recordKey}/files/{fileKey}:
+    put:
+      operationId: putCredentialingStaffStaffKeyRecordsRecordKeyFilesFileKey
+      summary: Credentialing/Staff/LinkFilesToRecords
+      tags:
+      - Staff Member
+      description: 'Links Credentialing Files to Credentialing Records for a specific Staff Member.
+
+        Response Object: LinkedFiles'
+      parameters:
+      - name: staffKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: recordKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: fileKey
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/workflows:
+    get:
+      operationId: getCredentialingStaffStaffIdWorkflows
+      summary: Credentialing/Staff/Workflows
+      tags:
+      - Staff Member
+      description: 'Returns Workflow Details for specific Staff Members
+
+        Response Object: StaffWorkflows'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/workflows/{workflowKey}:
+    delete:
+      operationId: deleteCredentialingStaffStaffIdWorkflowsWorkflowKey
+      summary: Credentialing/Staff/Workflows
+      tags:
+      - Staff Member
+      description: Deletes a workflow assigned to a provider in Credentialing.
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: workflowKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/workflowsv2:
+    get:
+      operationId: getCredentialingStaffStaffIdWorkflowsv2
+      summary: Credentialing/Staff/WorkflowsV2
+      tags:
+      - Staff Member
+      description: 'Returns workflow and workflow step details for a specific provider in Credentialing
+
+        Response Object: StaffWorkflowsV2'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/privileges:
+    get:
+      operationId: getCredentialingStaffStaffIdPrivileges
+      summary: Credentialing/Staff/Privileges
+      tags:
+      - Staff Member
+      description: 'Returns Privileges details for specific Staff Members
+
+        Response Object: StaffPrivileges'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/privileges/assigned:
+    get:
+      operationId: getCredentialingPrivilegesAssigned
+      summary: Credentialing/Privileges/Assigned
+      tags:
+      - Staff Member
+      description: 'Returns Privilege details for all Providers in a Company
+
+        Response Object: Array of StaffPrivileges'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/payerEnrollments:
+    get:
+      operationId: getCredentialingStaffStaffIdPayerEnrollments
+      summary: Credentialing/Staff/PayerEnrollments
+      tags:
+      - Staff Member
+      description: 'Returns Payer Enrollment details for all Providers in a Company
+
+        Response Object: Array of StaffPayerEnrollment'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/staff/{staffId}/professionalAccounts:
+    get:
+      operationId: getCredentialingStaffStaffIdProfessionalAccounts
+      summary: Credentialing/Staff/ProfessionalAccounts
+      tags:
+      - Staff Member
+      description: 'Returns professional account information of a single staff member by ID.
+
+        Response Object: StaffProfessionalAccounts'
+      parameters:
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'

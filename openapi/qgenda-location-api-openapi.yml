@@ -1,0 +1,760 @@
+openapi: 3.1.0
+info:
+  title: QGenda REST Company Location API
+  version: '2'
+  description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
+  contact:
+    name: QGenda Support
+    url: https://www.qgenda.com/
+  x-apisjson-derived-from: postman/qgenda-collection.json
+servers:
+- url: https://api.qgenda.com/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Location
+paths:
+  /v2/location:
+    get:
+      operationId: getLocation
+      summary: Location
+      tags:
+      - Location
+      description: 'Returns all locations the API user has access to, or can be filtered by company key.
+
+        Response Object: Array of Location'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postLocation
+      summary: Location
+      tags:
+      - Location
+      description: 'Creates a new location
+
+        Response Object: Location'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}:
+    put:
+      operationId: putLocationLocationId
+      summary: Location
+      tags:
+      - Location
+      description: 'Updates a location
+
+        Response Object: Location'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteLocationLocationId
+      summary: Location
+      tags:
+      - Location
+      description: 'Deletes a location
+
+        Returns: A single Location object, in JSON format.'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/locations:
+    get:
+      operationId: getCredentialingLocations
+      summary: Credentialing/Location
+      tags:
+      - Location
+      description: 'Returns Credentialing Locations the API user has access to along with associated details, and can be filtered by Location ID.
+
+        Response Object: CredentialingLocation'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/location:
+    post:
+      operationId: postCredentialingLocation
+      summary: Credentialing/Location
+      tags:
+      - Location
+      description: 'Creates a new Credentialing location
+
+        Response Object: CredentialingLocation'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/location/{locationId}:
+    put:
+      operationId: putCredentialingLocationLocationId
+      summary: Credentialing/Location/LocationId
+      tags:
+      - Location
+      description: 'Updates an existing Credentialing location
+
+        Response Object: CredentialingLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/location/contacts/{contactKey}/location/{locationId}/:
+    put:
+      operationId: putCredentialingLocationContactsContactKeyLocationLocationId
+      summary: Credentialing/Location/Contacts
+      tags:
+      - Location
+      description: 'Associates existing Contacts to existing Locations within Credentialing
+
+        Response: 200 success'
+      parameters:
+      - name: contactKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteCredentialingLocationContactsContactKeyLocationLocationId
+      summary: Credentialing/Location/Contacts
+      tags:
+      - Location
+      description: 'Unlinks a Contact from a Location within Credentialing
+
+        Response: 200 success'
+      parameters:
+      - name: contactKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/staff:
+    get:
+      operationId: getLocationLocationIdStaff
+      summary: Location/Staff
+      tags:
+      - Location
+      description: 'Returns all staff members at a particular location.
+
+        If Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.
+
+        Response Object: Array of StaffLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postLocationLocationIdStaff
+      summary: Location/Staff
+      tags:
+      - Location
+      description: 'Associates a staff member to a location.
+
+        If Workforce Credentialing Connection is enabled, the Staff member is added to the location in both Workforce and Credentialing.
+
+        Response Object: StaffLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/staff/{staffId}/FTE:
+    post:
+      operationId: postLocationLocationIdStaffStaffIdFTE
+      summary: Location/Staff/FTE
+      tags:
+      - Location
+      description: 'Applies an FTE value to a staff member at a location as of an effective start date.
+
+        Response Object: StaffLocation object with an FTE array for the newly created FTE/effective range for the Staff'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/staff/{staffId}/tag:
+    post:
+      operationId: postLocationLocationIdStaffStaffIdTag
+      summary: Location/Staff/Tag
+      tags:
+      - Location
+      description: 'Assign a staff-location tag to a staff member at a location
+
+        Response Object: StaffLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteLocationLocationIdStaffStaffIdTag
+      summary: Location/Staff/Tag
+      tags:
+      - Location
+      description: 'Delete a staff-location tag from a staff member at a location
+
+        Returns:A message indicating the amount of tag associations removed from the specified staff at the specified location'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/staff/{staffId}:
+    put:
+      operationId: putLocationLocationIdStaffStaffId
+      summary: Location/Staff
+      tags:
+      - Location
+      description: 'Updates a staff member’s assignment to a location
+
+        Response Object: StaffLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteLocationLocationIdStaffStaffId
+      summary: Location/Staff
+      tags:
+      - Location
+      description: 'Removes a staff member’s association to a location
+
+        Returns: A single StaffLocation object, in JSON format.'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/Credentialing/Locations/Providers:
+    post:
+      operationId: postCredentialingLocationsProviders
+      summary: Credentialing/Locations/Providers
+      tags:
+      - Location
+      description: 'Associates a provider to a location in Credentialing
+
+        Response Object: Array of Extended Provider-Location Credentialing Fields'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/locations/{locationId}/staff/{staffId}:
+    put:
+      operationId: putCredentialingLocationsLocationIdStaffStaffId
+      summary: Credentialing/Locations/Staff
+      tags:
+      - Location
+      description: 'Updates a staff member’s Contract Start Date at a location
+
+        Response Object: StaffLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/staff/{staffId}/credential:
+    delete:
+      operationId: deleteLocationLocationIdStaffStaffIdCredential
+      summary: Location/Staff/Credential
+      tags:
+      - Location
+      description: 'Removes a specific staff member’s credential at a location
+
+        Returns: A single StaffLocation object, in JSON format'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: staffId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/tasks:
+    get:
+      operationId: getLocationLocationIdTasks
+      summary: Location/Tasks
+      tags:
+      - Location
+      description: 'Returns all tasks at a particular location.
+
+        Response Object: Array of TaskLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/task:
+    post:
+      operationId: postLocationLocationIdTask
+      summary: Location/Task
+      tags:
+      - Location
+      description: 'Associates a task to a location
+
+        Response Object: TaskLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/task/:
+    put:
+      operationId: putLocationLocationIdTask
+      summary: Location/Task
+      tags:
+      - Location
+      description: 'Changes the credentialing status of a task at a location
+
+        Response Object: TaskLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/task/{taskId}:
+    delete:
+      operationId: deleteLocationLocationIdTaskTaskId
+      summary: Location/Task
+      tags:
+      - Location
+      description: 'Removes a task’s association to a location
+
+        Response Object: TaskLocation'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/location/{locationId}/tag:
+    post:
+      operationId: postLocationLocationIdTag
+      summary: Location/Tag
+      tags:
+      - Location
+      description: 'Assign a location tag to a location
+
+        Returns: A single Location object, in JSON format'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: deleteLocationLocationIdTag
+      summary: Location/Tag
+      tags:
+      - Location
+      description: 'Removes tag association(s) from a location
+
+        Returns:A message indicating the amount of tag associations removed from the specified location'
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'

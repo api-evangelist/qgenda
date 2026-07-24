@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: QGenda REST Company Contacts API
+  version: '2'
+  description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
+  contact:
+    name: QGenda Support
+    url: https://www.qgenda.com/
+  x-apisjson-derived-from: postman/qgenda-collection.json
+servers:
+- url: https://api.qgenda.com/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Contacts
+paths:
+  /v2/credentialing/contacts:
+    get:
+      operationId: getCredentialingContacts
+      summary: Credentialing/Contacts
+      tags:
+      - Contacts
+      description: 'Returns details on Contact(s) within the Credentialing Company.
+
+        Response Object: ContactDetails'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postCredentialingContacts
+      summary: Credentialing/Contacts
+      tags:
+      - Contacts
+      description: 'Creates a new Contact within a Credentialing Company.
+
+        Response Object: ContactDetails'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    put:
+      operationId: putCredentialingContacts
+      summary: Credentialing/Contacts
+      tags:
+      - Contacts
+      description: 'Updates an existing Contact within a Credentialing Company.
+
+        Response Object: ContactDetails'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/Contacts/{contactKey}/Associations:
+    delete:
+      operationId: deleteCredentialingContactsContactKeyAssociations
+      summary: Credentialing/Contacts
+      tags:
+      - Contacts
+      description: 'Returns details on Contact(s) within the Credentialing Company.
+
+        Response Object: ContactDetails'
+      parameters:
+      - name: contactKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /v2/credentialing/contacts/{contactKey}/associations:
+    put:
+      operationId: putCredentialingContactsContactKeyAssociations
+      summary: Credentialing/Contacts/Associations
+      tags:
+      - Contacts
+      description: Updates a Contact's Payer or Location associations in Credentialing.
+      parameters:
+      - name: contactKey
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'

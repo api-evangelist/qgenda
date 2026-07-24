@@ -1,0 +1,67 @@
+openapi: 3.1.0
+info:
+  title: QGenda REST Company Tags API
+  version: '2'
+  description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
+  contact:
+    name: QGenda Support
+    url: https://www.qgenda.com/
+  x-apisjson-derived-from: postman/qgenda-collection.json
+servers:
+- url: https://api.qgenda.com/v2
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Tags
+paths:
+  /v2/tags:
+    get:
+      operationId: getTags
+      summary: Tags
+      tags:
+      - Tags
+      description: 'Returns all tags the API user has access to, or can be filtered by company key.
+
+        Response Object: Array of TagDetailsByCompany'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+    post:
+      operationId: postTags
+      summary: Tags
+      tags:
+      - Tags
+      description: 'Creates a new tag in an existing tag category or creates a new tag in a new tag category
+
+        Response Object: TagDetailsByCompany'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'
