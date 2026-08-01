@@ -1,0 +1,20 @@
+# generated: '2026-07-20'
+# method: searched
+# source: live probe of /.well-known/ on api/www/restapi hosts
+hosts:
+- https://api.qgenda.com
+- https://www.qgenda.com
+- https://restapi.qgenda.com
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+note: Probed on all three hosts on 2026-07-20; no /.well-known/ discovery documents are published (all
+  404).

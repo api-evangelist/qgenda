@@ -1,0 +1,19 @@
+# generated: '2026-07-20'
+# method: generated
+# source: openapi/qgenda-openapi.yml
+generated: '2026-07-20'
+method: generated
+api: openapi/qgenda-openapi.yml
+skills:
+  - file: qgenda-authenticate-and-read-schedule.md
+    name: Authenticate and read the physician schedule
+    api: openapi/qgenda-openapi.yml
+    operations: [postLogin, getSchedule, getScheduleOpenshifts, getScheduleRotations]
+  - file: qgenda-manage-staff-directory.md
+    name: Read and update the staff member directory
+    api: openapi/qgenda-openapi.yml
+    operations: [getStaffmember, getStaffmemberStaffId, postStaffmember, putStaffmemberStaffId]
+  - file: qgenda-time-off-requests.md
+    name: Retrieve time-off requests and request limits
+    api: openapi/qgenda-openapi.yml
+    operations: [getRequest, getRequestApproved, getRequestlimit]

@@ -1,0 +1,50 @@
+# generated: '2026-07-20'
+# method: searched
+# source: https://restapi.qgenda.com/ (public Postman collection)
+api: openapi/qgenda-openapi.yml
+base_url: https://api.qgenda.com/v2
+authentication:
+  style: bearer-token
+  obtain: POST /v2/login with Content-Type application/x-www-form-urlencoded; returns access_token
+  send: 'Authorization: bearer <access_token>'
+  failure: HTTP 401 on invalid/expired token
+  see: authentication/qgenda-authentication.yml
+transport:
+  tls:
+  - TLSv1.2
+  - TLSv1.3
+  ssl_tls10_11: discontinued
+data_format:
+  default: application/json
+  request_content_type_recommended: application/json
+compression:
+  supported:
+  - br
+  - gzip
+  request_header: 'Accept-Encoding: br | gzip | *'
+query:
+  odata:
+    supported: partial (select resources)
+    params:
+    - $select
+    - $filter
+    - $orderby
+    - $top
+    - $skip
+    case_sensitive: true
+    note: OData support is per-resource; see each resource in the docs.
+versioning:
+  scheme: uri-path
+  current: v2
+  see: lifecycle/qgenda-lifecycle.yml
+errors:
+  see: errors/qgenda-problem-types.yml
+  auth_failure_status: 401
+idempotency:
+  documented: false
+  note: QGenda does not document an idempotency-key mechanism.
+cross_links:
+  errors: errors/qgenda-problem-types.yml
+  lifecycle: lifecycle/qgenda-lifecycle.yml
+  authentication: authentication/qgenda-authentication.yml
+  data_model: data-model/qgenda-data-model.yml

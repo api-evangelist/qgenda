@@ -1,8 +1,14 @@
 aid: qgenda
 name: QGenda
-description: 'QGenda is a company surfaced as a portfolio company of iconiq-capital and added to the API
-  Evangelist network as a stub for enrichment. Sector: healthcare. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  QGenda is a healthcare workforce management platform used by hospitals, health systems, medical
+  groups, and academic medical centers for physician and staff scheduling, on-call management,
+  provider credentialing, time tracking, and clinical operations. Its public REST API (version 2)
+  exposes 146 operations across scheduling, open shifts, rotations, staff members, tasks, time-off
+  requests and limits, pay codes and rates, locations, credentialing, notifications, and workflows.
+  The API uses token-based authentication via a login endpoint, serves JSON over HTTPS (TLS 1.2/1.3
+  only), supports BR/GZip compression, and offers OData query parameters on select resources. Backed
+  by ICONIQ Capital.
 url: https://raw.githubusercontent.com/api-evangelist/qgenda/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,13 +16,410 @@ x-backed-by:
 - iconiq-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.qgenda.com/wp-content/uploads/2025/05/hero-homepage-new.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Healthcare
-apis: []
+- Scheduling
+- Workforce Management
+- Physician Scheduling
+- On-Call
+- Credentialing
+- Clinical Operations
+apis:
+- aid: qgenda:qgenda-company-api
+  name: QGenda Company API
+  description: The Company API from QGenda — 1 operation(s) for company.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-company-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-contacts-api
+  name: QGenda Contacts API
+  description: The Contacts API from QGenda — 3 operation(s) for contacts.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-contacts-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-corporate-entities-api
+  name: QGenda Corporate Entities API
+  description: The Corporate Entities API from QGenda — 2 operation(s) for corporate entities.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Corporate Entities
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-corporate-entities-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-credit-allocation-api
+  name: QGenda Credit Allocation API
+  description: The Credit Allocation API from QGenda — 2 operation(s) for credit allocation.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Credit Allocation
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-credit-allocation-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-daily-api
+  name: QGenda Daily API
+  description: The Daily API from QGenda — 6 operation(s) for daily.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Daily
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-daily-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-daily-case-api
+  name: QGenda Daily Case API
+  description: The Daily Case API from QGenda — 2 operation(s) for daily case.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Daily Case
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-daily-case-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-integration-api
+  name: QGenda Integration API
+  description: The Integration API from QGenda — 1 operation(s) for integration.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-integration-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-location-api
+  name: QGenda Location API
+  description: The Location API from QGenda — 18 operation(s) for location.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-location-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-locations-api
+  name: QGenda Locations API
+  description: The Locations API from QGenda — 2 operation(s) for locations.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-locations-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-login-api
+  name: QGenda Login API
+  description: The Login API from QGenda — 1 operation(s) for login.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-login-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-notification-list-api
+  name: QGenda Notification List API
+  description: The Notification List API from QGenda — 4 operation(s) for notification list.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Notification List
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-notification-list-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-organization-api
+  name: QGenda Organization API
+  description: The Organization API from QGenda — 1 operation(s) for organization.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Organization
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-organization-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-pay-code-api
+  name: QGenda Pay Code API
+  description: The Pay Code API from QGenda — 1 operation(s) for pay code.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Pay Code
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-pay-code-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-pay-pool-template-api
+  name: QGenda Pay Pool Template API
+  description: The Pay Pool Template API from QGenda — 1 operation(s) for pay pool template.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Pay Pool Template
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-pay-pool-template-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-pay-rate-api
+  name: QGenda Pay Rate API
+  description: The Pay Rate API from QGenda — 2 operation(s) for pay rate.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Pay Rate
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-pay-rate-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-profile-api
+  name: QGenda Profile API
+  description: The Profile API from QGenda — 1 operation(s) for profile.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-profile-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-request-api
+  name: QGenda Request API
+  description: The Request API from QGenda — 2 operation(s) for request.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Request
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-request-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-request-limit-api
+  name: QGenda Request Limit API
+  description: The Request Limit API from QGenda — 6 operation(s) for request limit.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Request Limit
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-request-limit-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-schedule-api
+  name: QGenda Schedule API
+  description: The Schedule API from QGenda — 4 operation(s) for schedule.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-schedule-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-staff-member-api
+  name: QGenda Staff Member API
+  description: The Staff Member API from QGenda — 27 operation(s) for staff member.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Staff Member
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-staff-member-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-staff-target-api
+  name: QGenda Staff Target API
+  description: The Staff Target API from QGenda — 8 operation(s) for staff target.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Staff Target
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-staff-target-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-support-api
+  name: QGenda Support API
+  description: The Support API from QGenda — 1 operation(s) for support.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Support
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-support-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-tags-api
+  name: QGenda Tags API
+  description: The Tags API from QGenda — 1 operation(s) for tags.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-tags-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-task-api
+  name: QGenda Task API
+  description: The Task API from QGenda — 5 operation(s) for task.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Task
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-task-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-time-event-api
+  name: QGenda Time Event API
+  description: The Time Event API from QGenda — 2 operation(s) for time event.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Time Event
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-time-event-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-user-api
+  name: QGenda User API
+  description: The User API from QGenda — 4 operation(s) for user.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-user-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
+- aid: qgenda:qgenda-workflows-api
+  name: QGenda Workflows API
+  description: The Workflows API from QGenda — 5 operation(s) for workflows.
+  humanURL: https://restapi.qgenda.com/
+  baseURL: https://api.qgenda.com/v2
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/qgenda-workflows-api-openapi.yml
+  - type: Postman
+    url: postman/qgenda-collection.json
+  - type: Authentication
+    url: authentication/qgenda-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +428,60 @@ maintainers:
 common:
 - type: Website
   url: https://www.qgenda.com/
+- type: DeveloperPortal
+  url: https://restapi.qgenda.com/
+- type: Documentation
+  url: https://restapi.qgenda.com/
+- type: APIReference
+  url: https://restapi.qgenda.com/
+- type: Postman
+  url: postman/qgenda-collection.json
+- type: Authentication
+  url: authentication/qgenda-authentication.yml
+- type: Conventions
+  url: conventions/qgenda-conventions.yml
+- type: ErrorCatalog
+  url: errors/qgenda-problem-types.yml
+- type: DataModel
+  url: data-model/qgenda-data-model.yml
+- type: MCPServer
+  url: mcp/qgenda-mcp.yml
+- type: LLMsTxt
+  url: llms/qgenda-llms.txt
+- type: Lifecycle
+  url: lifecycle/qgenda-lifecycle.yml
+- type: StatusPage
+  url: https://status.qgenda.com/
+- type: Deprecation
+  url: lifecycle/qgenda-lifecycle.yml
+- type: Conformance
+  url: conformance/qgenda-conformance.yml
+- type: Compliance
+  url: https://trust.qgenda.com/
+- type: WellKnown
+  url: well-known/qgenda-well-known.yml
+- type: DomainSecurity
+  url: security/qgenda-domain-security.yml
+- type: TrustCenter
+  url: security/qgenda-trust-center.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Support
+  url: https://www.qgenda.com/support/
+- type: Blog
+  url: https://www.qgenda.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/qgenda
+- type: Login
+  url: https://login.qgenda.com/
+- type: SignUp
+  url: https://www.qgenda.com/request-a-demo/
+- type: TermsOfService
+  url: https://www.qgenda.com/terms/
+- type: PrivacyPolicy
+  url: https://www.qgenda.com/privacy-policy/
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

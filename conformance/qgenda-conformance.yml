@@ -1,0 +1,23 @@
+# generated: '2026-07-20'
+# method: derived
+# source: openapi/qgenda-openapi.yml + trust.qgenda.com
+standards:
+- id: http-bearer-token
+  conforms: true
+  evidence: 'Authorization: bearer token obtained via POST /v2/login'
+- id: oauth2
+  conforms: false
+  evidence: token-based login endpoint, not RFC 6749 OAuth2 flows
+- id: oidc
+  conforms: false
+- id: odata
+  conforms: true
+  evidence: OData query params ($select/$filter/$orderby) supported on select resources
+- id: tls12-min
+  conforms: true
+  evidence: HTTPS TLS 1.2/1.3 only; SSL and TLS 1.0/1.1 discontinued
+- id: rfc9457-problem-details
+  conforms: false
+- id: soc2
+  conforms: true
+  evidence: SOC 2 listed on trust.qgenda.com

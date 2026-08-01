@@ -1,0 +1,13 @@
+# generated: '2026-07-20'
+# method: derived
+# source: openapi/qgenda-openapi.yml + https://restapi.qgenda.com/ (public Postman collection)
+format: json
+note: QGenda documents token-auth failures as HTTP 401. Full error-code registry is not published in the
+  public collection; changing error codes of an existing endpoint is classified by QGenda as a breaking
+  change (versioned).
+problems:
+- status: 401
+  title: Unauthorized
+  description: Authentication failed or the access token is missing/expired. Re-authenticate via POST
+    /v2/login.
+  documented: true

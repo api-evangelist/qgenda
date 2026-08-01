@@ -1,0 +1,14 @@
+{
+  "repo": "qgenda",
+  "feeds": [
+    {
+      "source": "https://www.qgenda.com/support/",
+      "feed_url": "https://www.qgenda.com/feed/",
+      "title": "",
+      "saved": 4,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 4,
+  "fetched": "2026-07-25T15:00:33Z"
+}

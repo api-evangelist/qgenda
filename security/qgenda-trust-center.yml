@@ -1,0 +1,15 @@
+# generated: '2026-07-20'
+# method: searched
+# source: https://trust.qgenda.com/ (SafeBase trust center)
+generated: '2026-07-20'
+method: searched
+probe: true
+source: https://trust.qgenda.com/
+url: https://trust.qgenda.com/
+evidence:
+- source: https://trust.qgenda.com/
+  keywords:
+  - trust center
+  - compliance certification
+certifications:
+- SOC 2

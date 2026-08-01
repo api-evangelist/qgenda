@@ -1,0 +1,38 @@
+# generated: '2026-07-20'
+# method: searched
+# source: https://restapi.qgenda.com/ (public Postman collection)
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://restapi.qgenda.com/
+  policy: Breaking changes are only released in a new API version; non-breaking changes (new resources/properties/operations/optional
+    params) may be added to the current version without a new version.
+change_policy:
+  non_breaking:
+  - add resource
+  - add property to object
+  - add operation to resource
+  - add object used only by new resources
+  - overload params
+  - add optional params
+  breaking:
+  - add required input param
+  - remove input param
+  - remove response property
+  - change meaning of response property
+  - rename/retype input or output
+  - remove endpoint
+  - change error codes of endpoint
+deprecation:
+  policy: Endpoint removal and error-code changes are classified as breaking changes, released only in
+    a new API version.
+  docs: https://restapi.qgenda.com/
+status_page: https://status.qgenda.com/
+transport_policy:
+  tls:
+  - TLSv1.2
+  - TLSv1.3
+  discontinued:
+  - SSL
+  - TLSv1.0
+  - TLSv1.1

@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/qgenda-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Access token returned by POST /v2/login. Send as Authorization: bearer <access_token>.'
+  sources:
+  - openapi/qgenda-openapi.yml

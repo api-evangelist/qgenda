@@ -1,0 +1,24 @@
+# QGenda REST API
+
+> QGenda is a healthcare workforce management platform for physician and staff scheduling, on-call management, credentialing, provider data, time tracking, and clinical operations. The QGenda REST API (v2) exposes 146 operations across scheduling, staff, tasks, requests, pay, locations, and workflows. Base URL: https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; OData query support on select resources.
+
+## APIs
+- [QGenda REST API v2](https://api.qgenda.com/v2): 146 operations — scheduling, staff members, tasks, requests, pay codes/rates, locations, workflows.
+
+## Specs
+- [OpenAPI (derived)](openapi/qgenda-openapi.yml): OpenAPI 3.1 derived from the public Postman collection.
+- [Postman collection](postman/qgenda-collection.json): QGenda's public Postman collection (verbatim).
+
+## Docs
+- [REST API documentation](https://restapi.qgenda.com/): published API reference (Postman-hosted).
+- [Authentication](authentication/qgenda-authentication.yml): bearer token via POST /v2/login.
+- [Conventions](conventions/qgenda-conventions.yml): auth, OData, compression, versioning, error semantics.
+- [Lifecycle & versioning](lifecycle/qgenda-lifecycle.yml): v2, breaking/non-breaking change policy, status page.
+- [Data model](data-model/qgenda-data-model.yml): entities and relationships.
+- [Status page](https://status.qgenda.com/)
+- [Trust center](https://trust.qgenda.com/): SOC 2.
+
+## Skills
+- [Authenticate and read schedule](skills/qgenda-authenticate-and-read-schedule.md)
+- [Manage staff directory](skills/qgenda-manage-staff-directory.md)
+- [Time-off requests](skills/qgenda-time-off-requests.md)

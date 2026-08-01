@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for QGenda REST API
+  version: 1.0.0
+extends: openapi/qgenda-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-apievangelist-source: postman/qgenda-collection.json
+      x-apievangelist-notes: OpenAPI derived from QGenda public Postman collection; responses/request bodies are shape-only placeholders pending a provider-published OpenAPI.
+  - target: $.info
+    update:
+      x-agent-readiness-artifacts:
+        authentication: authentication/qgenda-authentication.yml
+        conventions: conventions/qgenda-conventions.yml
+        errors: errors/qgenda-problem-types.yml
+        lifecycle: lifecycle/qgenda-lifecycle.yml
+        data-model: data-model/qgenda-data-model.yml
+        skills: skills/_index.yml
