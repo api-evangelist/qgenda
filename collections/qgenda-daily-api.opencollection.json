@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Daily API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Daily",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily/PatientEncounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/daily/patientencounter",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns patient encounters for a specific company and date range.\nResponse Object: PatientEncounter\nNote: If compression is supported/accepted by the client, up to 100 days of patient encounter data may be requested. If compression is not supported, then up to 31 days of patient encounter data may be returned."
+        },
+        {
+          "info": {
+            "name": "Daily/PatientEncounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/daily/patientencounter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new patient encounter.\n\nNote: \n\nResponse Object: PatientEncounter\nBody: raw (json)\n\n\n\nName\nType\nDescription\n\n\n\n\ncompanyKey\nGUID\nRequired  The key for the company associated with the facility.\n\n\ndailyConfigurationKey\nGUID\nRequired  QGenda’s identifier for a daily configuration\n\n\nroomKey\nGUID\nRequired if roomId is blank  QGenda’s RoomKey for the encounter\n\n\nroomId\nString\nRequired if roomKey is blank  The ExternalId1 identifier for the room\n\n\nstartDateTime\nDate/Time\nRequired  The starting"
+        },
+        {
+          "info": {
+            "name": "Daily/PatientEncounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/daily/patientencounter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing encounter by a unique case ID. All existing fields on the encounter will be overwritten based on fields/values provided in the request body - for sent fields, values will be maintained or updated. For fields not included in the call, values will be cleared. For Role Assignments, existing assignments will not be changed/removed if that encounterRoleKey is not included in the call.\n\nNote: \n\nResponse Object: PatientEncounter\nBody: raw (json)\n\n\n\nName\nType\nDescription\n\n\n\n\ncompanyK"
+        },
+        {
+          "info": {
+            "name": "Daily/PatientEncounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/daily/patientencounter/:caseId",
+            "params": [
+              {
+                "name": "caseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes an existing Patient Encounter by a case ID."
+        },
+        {
+          "info": {
+            "name": "Daily/DailyConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/daily/dailyconfiguration",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the daily configurations to which the user has access.  \nResponse Object: DailyConfiguration"
+        },
+        {
+          "info": {
+            "name": "Daily/DailyConfiguration/:dailyConfigurationKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/daily/dailyconfiguration/:dailyConfigurationKey",
+            "params": [
+              {
+                "name": "dailyConfigurationKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the daily configuration matching the provided dailyConfigurationKey.  \nResponse Object: DailyConfiguration"
+        },
+        {
+          "info": {
+            "name": "Daily/Room",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/daily/room",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the rooms for the specified company key\nResponse Object: Room"
+        },
+        {
+          "info": {
+            "name": "Daily/RoomAssignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/daily/capacityroomassignment",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the room assignments for the specified company key\nResponse Object: Room Assignments\nCreated on"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

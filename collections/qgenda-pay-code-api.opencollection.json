@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Pay Code API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pay Code",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PayCode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/PayCode",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the pay codes for a company\nResponse Object: Array of PayCode"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

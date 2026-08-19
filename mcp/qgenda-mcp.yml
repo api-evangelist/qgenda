@@ -1,6 +1,3 @@
-# generated: '2026-07-20'
-# method: derived
-# source: openapi/qgenda-openapi.yml
 status: candidate
 server:
   name: qgenda
@@ -446,3 +443,9 @@ tools:
 - name: deleteCredentialingLocationsLocationKeyWorkflowsLocationWorkflowKey
   description: Credentialing/Locations/Workflows
   source_operation: openapi/qgenda-openapi.yml#deleteCredentialingLocationsLocationKeyWorkflowsLocationWorkflowKey
+deployment:
+  mode: none
+  verified: derived
+  tools: 146
+  checked: '2026-08-12'
+  source: catalog MCP census

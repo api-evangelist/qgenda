@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Request Limit API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Request Limit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "RequestLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all request limits that are viewable by the user\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new request limit.\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a request limit.\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a request limit."
+        },
+        {
+          "info": {
+            "name": "RequestLimit/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey/taskshift",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adding task shifts &amp; credit to request limits.\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey/taskshift/:taskShiftKey",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskShiftKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Manage the credit associated to task shifts in request limits.\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit/StaffQuota",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey/staffquota",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Manages the staff quota on a request limit.\nResponse Object: RequestLimit"
+        },
+        {
+          "info": {
+            "name": "RequestLimit/StaffQuota",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/requestlimit/:requestLimitKey/staffquota/:staffid",
+            "params": [
+              {
+                "name": "requestLimitKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff quota for a request limit\nResponse Object: RequestLimit"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

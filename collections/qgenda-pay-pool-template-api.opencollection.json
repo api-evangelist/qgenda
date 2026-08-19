@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Pay Pool Template API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pay Pool Template",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PayPoolTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/PayPoolTemplate/:PayPoolTemplateID/PayPeriodAmount",
+            "params": [
+              {
+                "name": "PayPoolTemplateID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates the Available or Budgeted Amounts in a Pay Pool for a Pay Period\nResponse Object: PayPoolTemplate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

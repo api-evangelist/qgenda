@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Task API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Task",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/task",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all tasks that are viewable by the user\nResponse Object: Array of Task"
+        },
+        {
+          "info": {
+            "name": "Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/task",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new Task with at least one Task Shift\nResponse Object: Task"
+        },
+        {
+          "info": {
+            "name": "Task/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/task/:taskid/location",
+            "params": [
+              {
+                "name": "taskid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all locations the task belongs to.\nResponse Object: Array of TaskLocation"
+        },
+        {
+          "info": {
+            "name": "Task/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/task/:taskId/tag",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a task tag to a task\nResponse Object: Task"
+        },
+        {
+          "info": {
+            "name": "Task/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/task/:taskId/tag",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a task tag from a task\nResponse: A message indicating the amount of tag associations removed from the specified task"
+        },
+        {
+          "info": {
+            "name": "Task/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/task/:taskId/taskshift",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new task shift or a new effective date for an existing task shift\nResponse Object: TaskShift"
+        },
+        {
+          "info": {
+            "name": "Task/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/task/:taskId/taskshift/:taskShiftKey",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskShiftKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing effective dated task shift \nResponse Object: TaskShift"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

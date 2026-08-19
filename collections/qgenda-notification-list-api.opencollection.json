@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Notification List API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification List",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "NotificationList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/notificationlist",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a New Notification List\nResponse Object: Notification List"
+        },
+        {
+          "info": {
+            "name": "NotificationList/Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/notificationlist/:notificationListId/contact",
+            "params": [
+              {
+                "name": "notificationListId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a new Contact to an existing Notification List\nResponse Object: Notification List"
+        },
+        {
+          "info": {
+            "name": "NotificationList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/notificationlist/:notificationListId",
+            "params": [
+              {
+                "name": "notificationListId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a Notification List"
+        },
+        {
+          "info": {
+            "name": "NotificationList/Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/notificationlist/:notificationListId/contact/",
+            "params": [
+              {
+                "name": "notificationListId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a single tag or contact from an existing Notification List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

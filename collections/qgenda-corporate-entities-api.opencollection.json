@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Corporate Entities API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Corporate Entities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Credentialing/CorporateEntities/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/corporateEntities/:corporateEntityKey/workflows",
+            "params": [
+              {
+                "name": "corporateEntityKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns assigned workflow and workflow step information for a specified Corporate Entity in Credentialing\nResponse Object: CorporateEntityWorkflows"
+        },
+        {
+          "info": {
+            "name": "Credentialing/CorporateEntities/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/corporateEntities/:corporateEntityKey/workflows/:corporateEntityWorkflowKey",
+            "params": [
+              {
+                "name": "corporateEntityKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "corporateEntityWorkflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a workflow assigned to a corporate entity in Credentialing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Credit Allocation API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Credit Allocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CreditAllocation/Quota",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/CreditAllocation/Quota",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Quota information for Staff, with a separate response for each staff member\nReturns Staff who are currently skilled for task(s) within the Credit Allocation\nReturns Staff who are still a part of the Credit Allocation but are no longer skilled\nResponse Object: CreditAllocation"
+        },
+        {
+          "info": {
+            "name": "CreditAllocation/Quota",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/creditallocation/:creditAllocationKey/quota/:staffId",
+            "params": [
+              {
+                "name": "creditAllocationKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates Quota information for existing staff associated with the Quota\nUpdates Staff who are currently skilled for task(s) within the Credit Allocation\nUpdates Staff who are still a part of the Credit Allocation but are no longer skilled\nResponse Object: CreditAllocation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

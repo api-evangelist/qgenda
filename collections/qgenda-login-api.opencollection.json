@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Login API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Login v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "All future requests must have an “Authentication” header with the token type and token appended as the value.  \nExample:\n\nAuthorization: bearer eyJhbGciOiJBMjU2S1ciLCJlbmMiO...\n\nEmail and Password may only be sent in the request body.  Sending in the query string will return a 'Bad Request' error."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

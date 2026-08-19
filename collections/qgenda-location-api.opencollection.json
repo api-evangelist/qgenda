@@ -1,0 +1,645 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Location API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/location",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all locations the API user has access to, or can be filtered by company key.\nResponse Object: Array of Location"
+        },
+        {
+          "info": {
+            "name": "Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new location\nResponse Object: Location"
+        },
+        {
+          "info": {
+            "name": "Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a location\nResponse Object: Location"
+        },
+        {
+          "info": {
+            "name": "Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a location\nReturns: A single Location object, in JSON format."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/locations",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Credentialing Locations the API user has access to along with associated details, and can be filtered by Location ID.\nResponse Object: CredentialingLocation"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/location",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new Credentialing location\nResponse Object: CredentialingLocation"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Location/LocationId",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/location/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing Credentialing location\nResponse Object: CredentialingLocation"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Location/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/location/contacts/:contactKey/location/:locationId/",
+            "params": [
+              {
+                "name": "contactKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Associates existing Contacts to existing Locations within Credentialing\nResponse: 200 success"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Location/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/location/contacts/:contactKey/location/:locationId/",
+            "params": [
+              {
+                "name": "contactKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Unlinks a Contact from a Location within Credentialing\nResponse: 200 success"
+        },
+        {
+          "info": {
+            "name": "Location/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all staff members at a particular location.\nIf Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.\nResponse Object: Array of StaffLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Associates a staff member to a location.\nIf Workforce Credentialing Connection is enabled, the Staff member is added to the location in both Workforce and Credentialing.\nResponse Object: StaffLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Staff/FTE",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId/FTE",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Applies an FTE value to a staff member at a location as of an effective start date.\nResponse Object: StaffLocation object with an FTE array for the newly created FTE/effective range for the Staff"
+        },
+        {
+          "info": {
+            "name": "Location/Staff/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId/tag",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a staff-location tag to a staff member at a location\nResponse Object: StaffLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Staff/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId/tag",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a staff-location tag from a staff member at a location\nReturns:A message indicating the amount of tag associations removed from the specified staff at the specified location"
+        },
+        {
+          "info": {
+            "name": "Location/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff member’s assignment to a location\nResponse Object: StaffLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a staff member’s association to a location\nReturns: A single StaffLocation object, in JSON format."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Locations/Providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/Credentialing/Locations/Providers",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Associates a provider to a location in Credentialing\nResponse Object: Array of Extended Provider-Location Credentialing Fields"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Locations/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/locations/:locationId/staff/:staffId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff member’s Contract Start Date at a location\nResponse Object: StaffLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Staff/Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/staff/:staffId/credential",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a specific staff member’s credential at a location\nReturns: A single StaffLocation object, in JSON format"
+        },
+        {
+          "info": {
+            "name": "Location/Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/tasks",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all tasks at a particular location.\nResponse Object: Array of TaskLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/task",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Associates a task to a location\nResponse Object: TaskLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/task/",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Changes the credentialing status of a task at a location\nResponse Object: TaskLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/task/:taskId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a task’s association to a location\nResponse Object: TaskLocation"
+        },
+        {
+          "info": {
+            "name": "Location/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/tag",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a location tag to a location\nReturns: A single Location object, in JSON format"
+        },
+        {
+          "info": {
+            "name": "Location/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/location/:locationId/tag",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes tag association(s) from a location\nReturns:A message indicating the amount of tag associations removed from the specified location"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,247 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Staff Target API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Staff Target",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "StaffTarget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns staff targets that are viewable to the user\nResponse Object: StaffTarget"
+        },
+        {
+          "info": {
+            "name": "StaffTarget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new staff target\nResponse Object: StaffTarget"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/staff",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new effective range for a staff member included in a staff target\nResponse Object: StaffTarget\nNOTE Partial response; only the parent and staff array properties"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/staff/:staffId",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing effective range for a staff member included in a staff target\nResponse Object: StaffTarget\nNOTE Partial response; only the parent and staff array properties"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/profile",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sets the usage permissions for user profile for a staff target\nResponse Object: StaffTarget"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/taskshift",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a task shift to a staff target\nResponse Object: StaffTarget"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/TaskShift",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/taskshift/:taskShiftKey",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskShiftKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a task shift from a staff target"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/location",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a location to a staff target\nResponse Object: StaffTarget"
+        },
+        {
+          "info": {
+            "name": "StaffTarget/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/stafftarget/:targetKey/location/:locationId",
+            "params": [
+              {
+                "name": "targetKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes a location from a staff target"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

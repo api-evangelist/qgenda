@@ -1,0 +1,916 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Staff Member API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Staff Member",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "StaffMember",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/staffmember",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all staff members that are viewable by the user.\nIf Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.\nResponse Object: Array of StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a staff member.\nIf Workforce Credentialing Connection is enabled, the Staff member is added in both Workforce and Credentialing.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff member. Any fields not included will not be changed. Any fields included will be changed.Can use NPI, StaffId, BillSysId, and/or Email to match to a staff member. That order respectively will be used for preference when multiple of those properties are provided.\nIf Workforce Credentialing Connection is enabled, the Staff member is updated in both Workforce and Credentialing.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/StaffId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single staff member by ID.\nIf Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/StaffId",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff member. Any fields not included will not be changed. Any fields included will be changed.\nIf Workforce Credentialing Connection is enabled, the Staff member is updated in both Workforce and Credentialing.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "StaffMember"
+        },
+        {
+          "info": {
+            "name": "StaffMember/BadgeId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/badgeId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff member's Badge ID.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/BadgeId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/badgeId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a Badge ID from a staff member.\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/location",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all locations the staff member belongs to.\nIf Workforce Credentialing Connection is enabled, Staff member Credentialing information is returned in addition to the Workforce information.\nResponse Object: Array of StaffLocation"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Location/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/location/:locationId/tag",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a staff-location tag to a staff member at a location\nResponse Object: StaffLocation"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Location/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/location/:locationId/tag",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a staff-location tag from a staff member at a location\nReturns:A message indicating the amount of tag associations removed from the specified staff at the specified location"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/tag",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a staff tag to a staff member\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/tag",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a staff tag from a staff member\nReturns:A message indicating the amount of tag associations removed from the specified staff"
+        },
+        {
+          "info": {
+            "name": "StaffMember/SkillSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/skillset",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Gives a staff the ability to work a task\nResponse Object: SkillSet"
+        },
+        {
+          "info": {
+            "name": "StaffMember/SkillSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/skillset/:taskId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff's ability to work a task\nResponse Object: SkillSet"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Skillset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/skillset/:taskId",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes an existing skillset for a staff member for a task"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/profile",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sets the permissions of a user profile for a staff member\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/profile/:profileKey",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "profileKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates the permissions of a user profile for a staff member\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "StaffMember/PayModifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/payModifier",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all Pay Modifiers for the staff member.\nResponse Object: Array of StaffPayModifier"
+        },
+        {
+          "info": {
+            "name": "StaffMember/PayModifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/payModifier",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates Pay Modifiers for the staff member.\nResponse Object: Array of StaffPayModifier"
+        },
+        {
+          "info": {
+            "name": "StaffMember/PayModifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/payModifier/:payModifierKey",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "payModifierKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates all Pay Modifiers for the staff member.\nResponse Object: Array of StaffPayModifier"
+        },
+        {
+          "info": {
+            "name": "StaffMember/PayModifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/payModifier/:payModifierKey",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "payModifierKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes all Pay Modifiers for the staff member.\nResponse Object: Array of StaffPayModifier"
+        },
+        {
+          "info": {
+            "name": "StaffMember/RequestLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:staffId/requestlimit",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all Request Limits the staff member belongs to.\nResponse Object: Array of RequestLimit"
+        },
+        {
+          "info": {
+            "name": "StaffMember/Manager",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/staffmember/:Id/manager/",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a staff's Manager\nResponse Object: StaffMemberDetail"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/records",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Credentialing Records for a specific Staff Member\nResponse Object: StaffRecords"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/appointments",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Credentialing Location Appointment Information for a specific Staff Member\nResponse Object: StaffAppointments"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/addresses",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Address information for Providers in Credentialing\nResponse Object: StaffAddresses"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/files",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns data on files associated with Providers in Credentialing.\nResponse Object: StaffFiles"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/File",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/file",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a specific file associated with a Provider in Credentialing.\nIf successful, response will return a 200 along with the appropriate file (image, PDF, csv file, etc) based on provided File Key."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/LinkFilesToRecords",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffKey/records/:recordKey/files/:fileKey",
+            "params": [
+              {
+                "name": "staffKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "recordKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fileKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Links Credentialing Files to Credentialing Records for a specific Staff Member.\nResponse Object: LinkedFiles"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/workflows",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Workflow Details for specific Staff Members\nResponse Object: StaffWorkflows"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/workflows/:workflowKey",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a workflow assigned to a provider in Credentialing."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/WorkflowsV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/workflowsv2",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns workflow and workflow step details for a specific provider in Credentialing\nResponse Object: StaffWorkflowsV2"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/Privileges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/privileges",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Privileges details for specific Staff Members\nResponse Object: StaffPrivileges"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Privileges/Assigned",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/privileges/assigned",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Privilege details for all Providers in a Company\nResponse Object: Array of StaffPrivileges"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/PayerEnrollments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/payerEnrollments",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Payer Enrollment details for all Providers in a Company\nResponse Object: Array of StaffPayerEnrollment"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Staff/ProfessionalAccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/staff/:staffId/professionalAccounts",
+            "params": [
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns professional account information of a single staff member by ID.\nResponse Object: StaffProfessionalAccounts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

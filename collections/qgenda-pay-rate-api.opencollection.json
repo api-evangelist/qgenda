@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Pay Rate API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pay Rate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PayRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/payrate",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the pay rates for a company\nResponse Object: Array of PayRate"
+        },
+        {
+          "info": {
+            "name": "PayRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/payrate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new pay rate\nResponse Object: PayRate"
+        },
+        {
+          "info": {
+            "name": "PayRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/payrate/:payRateKey",
+            "params": [
+              {
+                "name": "payRateKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a pay rate by unique rate key. Only sent fields will be overwritten; if a saved field is not provided, it will remain the same.\nResponse Object: PayRate"
+        },
+        {
+          "info": {
+            "name": "PayRate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/payrate/:payRateKey",
+            "params": [
+              {
+                "name": "payRateKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes an existing pay rate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

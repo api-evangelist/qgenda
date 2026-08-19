@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Workflows API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Credentialing/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/workflows/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns details on Workflows within a Credentialing company.\nResponse Object: WorkflowDetails object"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Workflows/WorkflowKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/workflows/:workflowKey",
+            "params": [
+              {
+                "name": "workflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns Settings-level workflow and workflow step details for a single workflow within a Credentialing company.\nResponse Object: WorkflowandWorkflowStepDetails object"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Workflows/Staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/workflows/:workflowKey/staff",
+            "params": [
+              {
+                "name": "workflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assigns a workflow to a Provider in Credentialing. Success response includes the workflow key for the assigned workflow."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Workflows/CorporateEntities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/workflows/:workflowKey/corporateEntities",
+            "params": [
+              {
+                "name": "workflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assigns a workflow to a Corporate Entity in Credentialing. Success response includes the workflow key for the assigned workflow."
+        },
+        {
+          "info": {
+            "name": "Credentialing/Workflows/Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/workflows/:workflowKey/locations",
+            "params": [
+              {
+                "name": "workflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assigns a workflow to a Location in Credentialing. Success response includes the workflow key for the assigned workflow."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

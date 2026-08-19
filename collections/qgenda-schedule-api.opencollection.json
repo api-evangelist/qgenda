@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Schedule API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/schedule",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns schedule entries within the date range for companies the user has access to.\nResponse Object: Array of ScheduleEntry\nNote: If compression is supported/accepted by the client, up to 100 days of schedule data may be requested. If compression is not supported, then up to 31 days of schedule data may be returned.\nNote: Times are displayed according to the task’s location time zone or, if there isn’t a task location time zone, it uses the company’s time zone instead.\nIf the schedule entry’s s"
+        },
+        {
+          "info": {
+            "name": "Schedule/AuditLog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/schedule/auditLog",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the schedule audit log for the specified date range/companies\nResponse Object: Array of ScheduleAuditLogEntry\nNote: If compression is supported/accepted by the client, up to 100 days of schedule data may be requested. If compression is not supported, then up to 31 days of schedule data may be returned."
+        },
+        {
+          "info": {
+            "name": "OpenShifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/schedule/openshifts",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns open shifts for a date range.\nResponse Object: Array of OpenShift\nNote: Times are displayed according to the task’s location time zone or, if there isn’t a task location time zone, it uses the company’s time zone instead. \nIf the open shift’s start or end time falls within a time range affected by Daylight Saving Time (DST), the following rules apply:\n\nIf the start time falls within the “gap” at the start of DST, StartTime will be an hour earlier to account for the hour “lost” by the tim"
+        },
+        {
+          "info": {
+            "name": "Rotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/schedule/rotations",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns schedule rotations for a specific company and date range.Rotations will be followed to their beginning/end even if the dates for those boundaries are outside the rangeStartDate and rangeEndDate range provided (up to rangeExtension-months before rangeStartDate and rangeExtension-months after requestEndDate). When rangeExtension is not defined, this value defaults to 6.\nResource URL:https://api.qgenda.com/v2/schedule/rotations\nReturns:An array of ScheduleRotation objects, in JSON format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

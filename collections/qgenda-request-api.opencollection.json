@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Request API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Request",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/request",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns requests for a specific company and date range.\nResponse Object: Array of Request\nNote: If compression is supported/accepted by the client, up to 100 days of request data may be requested. If compression is not supported, then up to 31 days of request data may be returned."
+        },
+        {
+          "info": {
+            "name": "Request/Approved",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/request/approved",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns approved requests for a specific company and date range.\nResponse Object: Array of Approved Requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

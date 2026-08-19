@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Daily Case API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Daily Case",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DailyCase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/dailycase",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the daily cases within a specified date range.\nResponse Object: Array of DailyCase\nNote: If compression is supported/accepted by the client, up to 100 days of DailyCase data may be requested. If compression is not supported, then up to 31 days of DailyCase data may be returned."
+        },
+        {
+          "info": {
+            "name": "DailyCase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/dailycase",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new daily case.\nResponse Object: DailyCase"
+        },
+        {
+          "info": {
+            "name": "DailyCase",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/dailycase/:caseId",
+            "params": [
+              {
+                "name": "caseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing daily case by a unique case ID. Only sent fields will be overwritten; if a saved field is not provided, it will remain the same.\nResponse Object: DailyCase"
+        },
+        {
+          "info": {
+            "name": "DailyCase",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/dailycase/:caseId",
+            "params": [
+              {
+                "name": "caseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes an existing daily case by a unique case ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

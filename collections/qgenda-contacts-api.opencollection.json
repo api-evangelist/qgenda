@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Contacts API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Credentialing/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/contacts",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns details on Contact(s) within the Credentialing Company.\nResponse Object: ContactDetails"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/contacts",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new Contact within a Credentialing Company.\nResponse Object: ContactDetails"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/contacts",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing Contact within a Credentialing Company.\nResponse Object: ContactDetails"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/Contacts/:contactKey/Associations",
+            "params": [
+              {
+                "name": "contactKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns details on Contact(s) within the Credentialing Company.\nResponse Object: ContactDetails"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Contacts/Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/contacts/:contactKey/associations",
+            "params": [
+              {
+                "name": "contactKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates a Contact's Payer or Location associations in Credentialing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

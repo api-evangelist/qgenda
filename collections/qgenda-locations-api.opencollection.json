@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Locations API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Credentialing/Locations/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/locations/:locationKey/workflows",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns assigned workflow and workflow step information for a specified Location in Credentialing\nResponse Object: LocationWorkflows"
+        },
+        {
+          "info": {
+            "name": "Credentialing/Locations/Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.qgenda.com/v2/v2/credentialing/locations/:locationKey/workflows/:locationWorkflowKey",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationWorkflowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes a workflow assigned to a location in Credentialing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

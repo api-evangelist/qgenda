@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QGenda REST Company Time Event API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TimeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.qgenda.com/v2/v2/timeevent",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns TimeEvents (clocked or logged time) for a specific company and date range.\nResponse Object: Array of TimeEvent\nNote: If compression is supported/accepted by the client, up to 100 days of TimeEvent data may be requested. If compression is not supported, then up to 31 days of TimeEvent data may be returned."
+        },
+        {
+          "info": {
+            "name": "TimeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.qgenda.com/v2/v2/timeevent",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a TimeEvent for a specific staff, task, date, and company.\nResponse Object: TimeEvent"
+        },
+        {
+          "info": {
+            "name": "TimeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.qgenda.com/v2/v2/timeevent/:timePunchEventKey",
+            "params": [
+              {
+                "name": "timePunchEventKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Edits a TimeEvent by ID.\nResponse Object: TimeEvent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
