@@ -1,0 +1,52 @@
+slug: qgenda
+provider: QGenda
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Healthcare Providers
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Workflows
+  spec_file: qgenda-workflows-api-openapi.yml
+  capability_id: BC-2890.10
+  capability_id_l1: BC-2890
+  capability_name: Practitioner Credentialing
+  confidence: 0.85
+  evidence: GET /v2/credentialing/workflows/{workflowKey}; POST /v2/credentialing/workflows/{workflowKey}/staff
+  reason: All operations sit under the credentialing namespace and attach staff, corporate entities and
+    locations to credentialing workflows — practitioner credentialing for a provider organisation.
+- tag: Pay Rate
+  spec_file: qgenda-pay-rate-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.8
+  evidence: GET /v2/payrate  getPayrate  PayRate; PUT /v2/payrate/{payRateKey}
+  reason: Full CRUD over staff pay rates is compensation structure administration, a Human Capital Management
+    capability regardless of the healthcare buyer.
+- tag: Contacts
+  spec_file: qgenda-contacts-api-openapi.yml
+  capability_id: BC-2890.10
+  capability_id_l1: BC-2890
+  capability_name: Practitioner Credentialing
+  confidence: 0.72
+  evidence: GET /v2/credentialing/contacts ... PUT /v2/credentialing/contacts/{contactKey}/associations
+  reason: All operations are under the credentialing resource, managing contacts and their associations
+    used in practitioner credentialing (references, verification sources). Vendor is described as providing
+    'provider credentialing'. Sub-capability inferred, so not maximal confidence.
+- tag: Time Event
+  spec_file: qgenda-time-event-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: PUT /v2/timeevent/{timePunchEventKey}  TimeEvent
+  reason: Time punch event capture and maintenance — employee time tracking feeding payroll/HR operations,
+    consistent with the vendor's stated 'time tracking' function.
