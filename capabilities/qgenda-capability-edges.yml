@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 4
+edge_count: 6
 edges:
 - tag: Workflows
   spec_file: qgenda-workflows-api-openapi.yml
@@ -19,34 +19,56 @@ edges:
   capability_id_l1: BC-2890
   capability_name: Practitioner Credentialing
   confidence: 0.85
-  evidence: GET /v2/credentialing/workflows/{workflowKey}; POST /v2/credentialing/workflows/{workflowKey}/staff
-  reason: All operations sit under the credentialing namespace and attach staff, corporate entities and
-    locations to credentialing workflows — practitioner credentialing for a provider organisation.
+  evidence: GET /v2/credentialing/workflows/; POST /v2/credentialing/workflows/{workflowKey}/staff
+  reason: All operations are under /credentialing/workflows and attach staff, corporate entities and locations
+    to credentialing workflows — practitioner credentialing process management.
 - tag: Pay Rate
   spec_file: qgenda-pay-rate-api-openapi.yml
   capability_id: BC-300.30
   capability_id_l1: BC-300
   capability_name: Compensation & Benefits Management
-  confidence: 0.8
-  evidence: GET /v2/payrate  getPayrate  PayRate; PUT /v2/payrate/{payRateKey}
-  reason: Full CRUD over staff pay rates is compensation structure administration, a Human Capital Management
-    capability regardless of the healthcare buyer.
-- tag: Contacts
-  spec_file: qgenda-contacts-api-openapi.yml
-  capability_id: BC-2890.10
-  capability_id_l1: BC-2890
-  capability_name: Practitioner Credentialing
-  confidence: 0.72
-  evidence: GET /v2/credentialing/contacts ... PUT /v2/credentialing/contacts/{contactKey}/associations
-  reason: All operations are under the credentialing resource, managing contacts and their associations
-    used in practitioner credentialing (references, verification sources). Vendor is described as providing
-    'provider credentialing'. Sub-capability inferred, so not maximal confidence.
-- tag: Time Event
-  spec_file: qgenda-time-event-api-openapi.yml
+  confidence: 0.78
+  evidence: GET /v2/payrate ... PUT /v2/payrate/{payRateKey}  PayRate
+  reason: Full CRUD over pay rates for staff members is pay-structure administration within Human Capital
+    Management.
+- tag: Staff Member
+  spec_file: qgenda-staff-member-api-openapi.yml
   capability_id: BC-300.70
   capability_id_l1: BC-300
   capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: GET /v2/staffmember ... POST /v2/staffmember/{staffId}/badgeId  StaffMember/BadgeId
+  reason: CRUD over staff member records including badge IDs, locations and tags is employee record stewardship
+    (HR Operations Management).
+- tag: Contacts
+  spec_file: qgenda-contacts-api-openapi.yml
+  capability_id: BC-2890
+  capability_id_l1: BC-2890
+  capability_name: Medical Staff & Credentialing Management
   confidence: 0.7
-  evidence: PUT /v2/timeevent/{timePunchEventKey}  TimeEvent
-  reason: Time punch event capture and maintenance — employee time tracking feeding payroll/HR operations,
-    consistent with the vendor's stated 'time tracking' function.
+  evidence: GET /v2/credentialing/contacts; PUT /v2/credentialing/contacts/{contactKey}/associations
+  reason: All operations sit under the credentialing module and maintain contacts and their associations
+    used in practitioner credentialing workflows on a provider workforce/credentialing platform. Mapped
+    at L1 to Medical Staff & Credentialing Management; the contact object is a supporting entity, so no
+    single sub-capability is named by the evidence.
+- tag: Corporate Entities
+  spec_file: qgenda-corporate-entities-api-openapi.yml
+  capability_id: BC-2890
+  capability_id_l1: BC-2890
+  capability_name: Medical Staff & Credentialing Management
+  confidence: 0.7
+  evidence: GET /v2/credentialing/corporateEntities/{corporateEntityKey}/workflows  "Credentialing/CorporateEntities/Workflows"
+  reason: Operations manage credentialing workflows attached to corporate entities within the vendor's
+    provider credentialing module, which is Medical Staff & Credentialing Management. Kept at L1 because
+    the evidence names workflow configuration rather than a specific credentialing, privileging or enrolment
+    step.
+- tag: Schedule
+  spec_file: qgenda-schedule-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: GET /v2/schedule/openshifts  OpenShifts ; GET /v2/schedule/rotations  Rotations
+  reason: Physician/staff schedules, open shifts and rotations are workforce rostering — Human Capital
+    Management at L1. No candidate L2 cleanly covers shift rostering, so L2 left null; patient scheduling
+    capabilities would be a misread.
