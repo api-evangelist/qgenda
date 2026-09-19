@@ -173,6 +173,8 @@ apis:
   humanURL: https://restapi.qgenda.com/
   baseURL: https://api.qgenda.com/v2
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
@@ -271,6 +273,8 @@ apis:
   humanURL: https://restapi.qgenda.com/
   baseURL: https://api.qgenda.com/v2
   tags:
+  - Profiles
+  tags_raw:
   - Profile
   properties:
   - type: OpenAPI
