@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 6
+edge_count: 7
 edges:
 - tag: Workflows
   spec_file: qgenda-workflows-api-openapi.yml
@@ -72,3 +72,13 @@ edges:
   reason: Physician/staff schedules, open shifts and rotations are workforce rostering — Human Capital
     Management at L1. No candidate L2 cleanly covers shift rostering, so L2 left null; patient scheduling
     capabilities would be a misread.
+- tag: Time Event
+  spec_file: qgenda-time-event-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: PUT /v2/timeevent/{timePunchEventKey}  TimeEvent
+  reason: Time punch event capture and maintenance — employee time tracking feeding payroll/HR operations,
+    consistent with the vendor's stated 'time tracking' function.
+  recovered_from: healthcare-vertical-edges.json
