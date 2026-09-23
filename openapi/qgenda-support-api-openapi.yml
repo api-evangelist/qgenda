@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: QGenda REST Company Support API
+  title: QGenda REST Support API
   version: '2'
   description: QGenda REST API Version 2 — physician scheduling, on-call, provider workforce management, credentialing, and clinical operations for healthcare organizations. Derived faithfully from QGenda's public Postman collection (restapi.qgenda.com). Base URL https://api.qgenda.com/v2. Token-based auth via POST /v2/login; HTTPS TLS 1.2/1.3 only; JSON payloads; BR/GZip compression; OData query support on select resources.
   contact:
